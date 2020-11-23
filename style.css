@@ -12,9 +12,13 @@ body,
   padding: 0;
 }
 
+h1{
+    color: black;
+}
+
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: rgb(77, 75, 75);
 }
 
 .wrapper {
