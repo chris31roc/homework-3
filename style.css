@@ -19,6 +19,7 @@ h1{
 body {
   font-family: sans-serif;
   background-color: rgb(77, 75, 75);
+  background-image: url(./Assets/password-page.jpg);
   background-attachment: fixed;
 }
 
