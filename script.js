@@ -15,6 +15,7 @@ var numbers = "1234567890" .split("")
 var specialChar = "!@#$%^&*()_+?<>}{[]`~" .split("")
 var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" .split("")
 var lowerChar = "abcdefghijklmnopqrstuvwxyz" .split("")
+var availableOptions = [];
 
 //Checking to make sure they are logged correctly
 console.log(numbers)
@@ -22,12 +23,48 @@ console.log(specialChar)
 console.log(upperChar)
 console.log(lowerChar)
 
-//Prompts and instructions for the user to start 
+//Prompts and instructions for the user to select users characters in password 
 function generatePassword() {
   var passLength = prompt(
-    "How many characters would you like your password to be?\nPlease choose a number between 8 and 128 characters.\n\nThen click OK!"
+    "How many characters would you like your password to be?\nPlease choose a number between 8 and 128 characters.\nThen click OK!"
     );
+    passLength = parseInt(passLength);
 
+    if (passLength > 8 && passLength < 128) {
+      var selectNumbers = confirm(
+        "Would you like numbers in your password?\n\n OK = Yes   |   Cancel = No"
+      );
+    }
+
+      if (selectNumbers) {
+        availableOptions = availableOptions.concat(numbers);
+        console.log(availableOptions);
+      }
+      
+      var selectSpecial = confirm(
+        "Would you like special characters in your password?\n\n OK = Yes   |   Cancel = No"
+      );
+
+      if (selectSpecial) {
+        availableOptions = availableOptions.concat(specialChar);
+        console.log(availableOptions);
+      }
+
+      var selectUpper = confirm( 
+        "Would you like upper case characters in your password?\n\n OK = Yes   |   Cancel = No"
+      );
+      
+      if (selectUpper) {
+        availableOptions = availableOptions.concat(upperChar);
+        console.log(availableOptions);
+      }
+
+      var selectLower = confirm(
+        "Would you like lower case characters in your password?\n\n OK = Yes   |   Cancel = No"
+      );
+
+      if (selectLower) {
+        availableOptions = availableOptions.concat(lowerChar);
+        console.log(availableOptions)
+      }
 }
-
-
