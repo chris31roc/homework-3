@@ -1,6 +1,6 @@
 # Password Generator
 
-![Photo of Application](./assets/password-generator.png)
+![Photo of Application](/assets/password-generator.png)
 
 
 # Link to Application
