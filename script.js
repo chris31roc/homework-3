@@ -1,7 +1,7 @@
 //Checking to see if I'm connected to my application
 console.log("App Connected")
 
-//Linking the element IDs  for the generate and password button
+//Linking the element IDs for the generate button and password text
 var generateBtn = document.getElementById("generate");
 var passwordText = document.getElementById("password");
 
@@ -67,4 +67,23 @@ function generatePassword() {
         availableOptions = availableOptions.concat(lowerChar);
         console.log(availableOptions)
       }
+
+      if (!selectNumbers && !selectSpecial && !selectUpper && !selectLower) {
+        alert("Password needs to contain at least one of the four character types!");
+      }
+
+      var newPassword = "";
+      for (var i = 0; i < getPassLength; i++) {
+        var newNumber = Math.floor(Math.random() * availableOptions.length);
+        newPassword += availableOptions[newNumber]
+        console.log(newPassword);
+      }
+
+      console.log(newPassword);
+
+      passwordText.textContent = newPassword;
+
+        
+        alert("Must be between 6 and 128 characters");
+        passwordText.textContent = "";
 }
