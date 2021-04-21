@@ -15,7 +15,14 @@ var numbers = "1234567890" .split("")
 var specialChar = "!@#$%^&*()_+?<>}{[]`~" .split("")
 var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" .split("")
 var lowerChar = "abcdefghijklmnopqrstuvwxyz" .split("")
-var availableOptions = [];
+var userChoices = [];
+
+//Input variables
+var passLength;
+var confirmNumbers;
+var confirmLowerChar;
+var confirmUpperChar;
+var confirmSpecialChar;
 
 //Checking to make sure they are logged correctly
 console.log(numbers)
@@ -25,65 +32,20 @@ console.log(lowerChar)
 
 //Prompts and instructions for the user to select users characters in password 
 function generatePassword() {
-  var passLength = prompt(
-    "How many characters would you like your password to be?\nPlease choose a number between 8 and 128 characters.\nThen click OK!"
-    );
-    passLength = parseInt(passLength);
 
-    if (passLength > 8 && passLength < 128) {
-      var selectNumbers = confirm(
-        "Would you like numbers in your password?\n\n OK = Yes   |   Cancel = No"
-      );
+    passLength = parseInt(prompt("How many characters would you like your password to be?\nPlease choose a number between 8 and 128 characters.\nThen click OK!"))
+    if (!passLength){
+        alert("Please choose a number between 8 and 128");
     }
 
-      if (selectNumbers) {
-        availableOptions = availableOptions.concat(numbers);
-        console.log(availableOptions);
-      }
-      
-      var selectSpecial = confirm(
-        "Would you like special characters in your password?\n\n OK = Yes   |   Cancel = No"
-      );
+    else if (passLength < 8 || passLength > 128){
+        passLength = parseInt(prompt("You must choose a number between 8 and 128"));
+    }
 
-      if (selectSpecial) {
-        availableOptions = availableOptions.concat(specialChar);
-        console.log(availableOptions);
-      }
-
-      var selectUpper = confirm( 
-        "Would you like upper case characters in your password?\n\n OK = Yes   |   Cancel = No"
-      );
-      
-      if (selectUpper) {
-        availableOptions = availableOptions.concat(upperChar);
-        console.log(availableOptions);
-      }
-
-      var selectLower = confirm(
-        "Would you like lower case characters in your password?\n\n OK = Yes   |   Cancel = No"
-      );
-
-      if (selectLower) {
-        availableOptions = availableOptions.concat(lowerChar);
-        console.log(availableOptions)
-      }
-
-      if (!selectNumbers && !selectSpecial && !selectUpper && !selectLower) {
-        alert("Password needs to contain at least one of the four character types!");
-      }
-
-      var newPassword = "";
-      for (var i = 0; i < getPassLength; i++) {
-        var newNumber = Math.floor(Math.random() * availableOptions.length);
-        newPassword += availableOptions[newNumber]
-        console.log(newPassword);
-      }
-
-      console.log(newPassword);
-
-      passwordText.textContent = newPassword;
-
-        
-        alert("Must be between 6 and 128 characters");
-        passwordText.textContent = "";
+    else {
+      confirmNumbers = confirm("Would you like numbers in your password?\n\n OK = Yes   |   Cancel = No");
+      confirmSpecialChar = confirm("Would you like special characters in your password?\n\n OK = Yes   |   Cancel = No");
+      confirmLowerChar = confirm("Would you like lower case characters in your password?\n\n OK = Yes   |   Cancel = No");
+      confirmUpperChar = confirm("Would you like upper case characters in your password?\n\n OK = Yes   |   Cancel = No");
+  };
 }
