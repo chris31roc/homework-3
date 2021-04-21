@@ -33,19 +33,27 @@ console.log(lowerChar)
 //Prompts and instructions for the user to select users characters in password 
 function generatePassword() {
 
-    passLength = parseInt(prompt("How many characters would you like your password to be?\nPlease choose a number between 8 and 128 characters.\nThen click OK!"))
-    if (!passLength){
-        alert("Please choose a number between 8 and 128");
-    }
+  passLength = parseInt(prompt("How many characters would you like your password to be?\nPlease choose a number between 8 and 128 characters.\nThen click OK!"))
+  if (!passLength){
+      alert("Please choose a number between 8 and 128");
+  }
 
-    else if (passLength < 8 || passLength > 128){
-        passLength = parseInt(prompt("You must choose a number between 8 and 128"));
-    }
+  else if (passLength < 8 || passLength > 128){
+      passLength = parseInt(prompt("You must choose a number between 8 and 128"));
+  }
 
-    else {
-      confirmNumbers = confirm("Would you like numbers in your password?\n\n OK = Yes   |   Cancel = No");
-      confirmSpecialChar = confirm("Would you like special characters in your password?\n\n OK = Yes   |   Cancel = No");
-      confirmLowerChar = confirm("Would you like lower case characters in your password?\n\n OK = Yes   |   Cancel = No");
-      confirmUpperChar = confirm("Would you like upper case characters in your password?\n\n OK = Yes   |   Cancel = No");
+  else {
+    confirmNumbers = confirm("Would you like numbers in your password?\n\n OK = Yes   |   Cancel = No");
+    confirmSpecialChar = confirm("Would you like special characters in your password?\n\n OK = Yes   |   Cancel = No");
+    confirmLowerChar = confirm("Would you like lower case characters in your password?\n\n OK = Yes   |   Cancel = No");
+    confirmUpperChar = confirm("Would you like upper case characters in your password?\n\n OK = Yes   |   Cancel = No");
   };
+
+  if (!confirmNumbers && !confirmSpecialChar && !confirmLowerChar && !confirmUpperChar){
+    alert("Password needs to contain at least one of the four character types!");
+  }
+
+  if (!confirmNumbers && !confirmSpecialChar && !confirmLowerChar && !confirmUpperChar){
+    alert("Password needs to contain at least one of the four character types!");
+}
 }
