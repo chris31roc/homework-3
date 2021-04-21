@@ -75,4 +75,40 @@ function generatePassword() {
       userChoices = numbers.concat(lowerChar, upperChar);
       console.log(userChoices)
   }
+
+
+  // 2 positive userChoices 
+  else if (confirmSpecialChar && confirmNumbers) {
+      userChoices = specialChar.concat(numbers);
+
+  } else if (confirmSpecialChar && confirmLowerChar) {
+      userChoices = specialChar.concat(lowerChar);
+
+  } else if (confirmSpecialChar && confirmUpperChar) {
+      userChoices = specialChar.concat(upperChar);
+  }
+  else if (confirmLowerChar && confirmNumbers) {
+      userChoices = lowerChar.concat(numbers);
+
+  } else if (confirmLowerChar && confirmUpperChar) {
+      userChoices = lowerChar.concat(upperChar);
+
+  } else if (confirmNumbers && confirmUpperChar) {
+      userChoices = numbers.concat(upperChar);
+  }
+
+
+  // 1 positive userChoice
+  else if (confirmSpecialChar) {
+      userChoices = specialChar;
+  }
+  else if (confirmNumbers) {
+      userChoices = numbers;
+  }
+  else if (confirmLowerChar) {
+      userChoices = lowerChar;
+  }
+  else if (confirmUpperChar) {
+      userChoices = upperChar;
+  };
 }
