@@ -15,7 +15,7 @@ var numbers = "1234567890" .split("")
 var specialChar = "!@#$%^&*()_+?<>}{[]`~" .split("")
 var upperChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" .split("")
 var lowerChar = "abcdefghijklmnopqrstuvwxyz" .split("")
-var userChoices = [];
+var userChoices;
 
 //Input variables
 var passLength;
@@ -53,7 +53,26 @@ function generatePassword() {
     alert("Password needs to contain at least one of the four character types!");
   }
 
-  if (!confirmNumbers && !confirmSpecialChar && !confirmLowerChar && !confirmUpperChar){
-    alert("Password needs to contain at least one of the four character types!");
-}
+  else if (confirmSpecialChar && confirmNumbers && confirmUpperChar && confirmLowerChar) {
+      userChoices = specialChar.concat(numbers, lowerChar, upperChar);
+  }
+
+
+    // 3 positive userChoices
+  else if (confirmSpecialChar && confirmNumbers && confirmUpperChar) {
+      userChoices = specialChar.concat(numbers, upperChar);
+      console.log(userChoices)
+  }
+  else if (confirmSpecialChar && confirmNumbers && confirmLowerChar) {
+      userChoices = specialChar.concat(numbers, lowerChar);
+      console.log(userChoices)
+  }
+  else if (confirmSpecialChar && confirmLowerChar && confirmUpperChar) {
+      userChoices = specialChar.concat(lowerChar, upperChar);
+      console.log(userChoices)
+  }
+  else if (confirmNumbers && confirmLowerChar && confirmUpperChar) {
+      userChoices = numbers.concat(lowerChar, upperChar);
+      console.log(userChoices)
+  }
 }
