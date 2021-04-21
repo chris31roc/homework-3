@@ -30,6 +30,15 @@ console.log(specialChar)
 console.log(upperChar)
 console.log(lowerChar)
 
+// Copy Password to Clipboard function
+function copyText() {
+  var copyText = document.getElementById("password");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999)
+  document.execCommand("copy");
+  alert("Successfully copied password");
+}
+
 //Prompts and instructions for the user to select users characters in password 
 function generatePassword() {
 
