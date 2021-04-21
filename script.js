@@ -111,4 +111,23 @@ function generatePassword() {
   else if (confirmUpperChar) {
       userChoices = upperChar;
   };
+
+  // password variable array
+  var password = []
+
+  // Random selection for all variables: 
+  for (var i = 0; i < passLength; i++) {
+    var pickUserChoices = userChoices[Math.floor(Math.random() * userChoices.length)];
+    password.push(pickUserChoices);
+    // console.log(pickUserChoices)
+  }
+  // This joins the password array and converts it to a string
+  var p = password.join("");
+  UserInput(p);
+  return p;
+}
+
+// the password into the textbox
+function UserInput(p) {
+  document.getElementById("password").textContent = p;
 }
